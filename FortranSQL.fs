@@ -6,7 +6,18 @@ let main argv =
     use myConnection = new MySqlConnection()
     use myCommand = new MySqlCommand()
     
-    let ConnectionString = "server=(someIPAddress); port=3306; uid=Me; password=MyPassword;"
+    Console.Write("Enter IP Address: ")
+    let ipAddress = Console.ReadLine()
+
+    Console.Write("Enter SQL Username: ")
+    let Username = Console.ReadLine()
+
+    Console.Write("Enter SQL Password: ")
+    let Password = Console.ReadLine()
+
+    let ConnectionString = "server=" + ipAddress + "; port=3306; uid=" + Username + 
+                           "; password=" + Password + ";"
+
     let myConnection : MySqlConnection = new MySqlConnection(ConnectionString)
     let myCommand : MySqlCommand = new MySqlCommand()
     myConnection.Open()
